@@ -16,7 +16,7 @@ The ERD diagram was created using ERD PLUS and shows the relationships between t
 
 ### DSD
 The DSD diagram was created in PGADMIN after creating the tables.
-![DSD](img/DSD.png)
+![DSD](part1/img/DSD.png)
 
 ## Data Insertion
 Data for all tables in the database were inserted using two methods:
