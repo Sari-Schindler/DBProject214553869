@@ -103,9 +103,9 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 ![image](part2/Update_query/update2/u2.png).
 
 תאריכי פתיחת השיעורים לפני השינוי:
-![טבלה המציגה את תאריכי השיעורים לפני השינוי](part2/Update_query/update2/before.png).
+![טבלה המציגה את תאריכי השיעורים לפני השינוי](part2/Update_query/update2/before2.png).
 תאריכי פתיחת השיעורים אחרי השינוי:
-![טבלה המציגה את תאריכי השיעורים אחרי השינוי](part2/Update_query/update2/after.png).
+![טבלה המציגה את תאריכי השיעורים אחרי השינוי](part2/Update_query/update2/after2.png).
 
 
 
