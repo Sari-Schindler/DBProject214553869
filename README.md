@@ -51,8 +51,30 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 
 ### [שאילתה 1](part2/select_query/select1/select1.sql)— פעילויות לפי חודש ושנה
 **
-השאילתה מראה כמה פעילויות(Activity) התקיימו בכל חודש בכל שנה (כולל פירוק תאריך).
+השאילתה סופרת את מספר הפעילויות שבוצעו בכל חודש ובשנה בטבלת Activity. היא מפרקת את התאריך (ActivityDate) לשנה ולחודש, מסכמת את כמות הפעילויות לפי כל חודש ושנה ומסדרת את התוצאה לפי סדר כרונולוגי (שנה → חודש).
 
 ![image](part2/select_query/select1/q1.png).
 ![image](part2/select_query/select1/r1.png).
+
+
+### [שאילתה 2](part2/select_query/select2/select2.sql)— ממוצע משכורות מורים לפי סוג שיעור
+**
+השאילתה מחשבת את השכר הממוצע של המורים לכל סוג שיעור בטבלת Lesson. היא מצרפת את טבלת Lesson עם טבלת Teacher לפי מזהה המורה (TId), מחשבת את השכר הממוצע לכל סוג שיעור ומסדרת את התוצאה לפי השכר הממוצע מהגבוה לנמוך.
+
+![image](part2/select_query/select2/q2.png).
+![image](part2/select_query/select2/r2.png).
+
+### [שאילתה 3](part2/select_query/select3/select3.sql)— ציוד לפי כיתות
+**
+השאילתה מציגה את הציוד שהוקצה לכל כיתה בטבלת Class. היא משתמשת בטבלת הקשר IsHaving כדי לקשר בין כיתות לציוד, ומצטרפת גם לטבלת Equipment כדי להביא את סוג הציוד (Type) ואת צבעו (Color). התוצאה כוללת את שם הכיתה, סוג הציוד וצבעו, ומסודרת לפי שם הכיתה (CName).
+![image](part2/select_query/select3/q3.png).
+![image](part2/select_query/select3/r3.png).
+
+
+### [שאילתה 4](part2/select_query/select3/select3.sql)— ציוד לפי כיתות
+**
+השאילתה מציגה את כל השיעורים שנפתחו במהלך השנה הנוכחית מתוך טבלת Lesson. היא בודקת את שנת הפתיחה (openDate) ומשווה אותה לשנה הנוכחית, ומחזירה את שם השיעור (LName), תאריך הפתיחה, וסוג השיעור (LessonType). התוצאות מוצגות לפי תאריך הפתיחה מהחדש לישן.
+
+![image](part2/select_query/select4/q4.png).
+![image](part2/select_query/select4/r4.png).
 
