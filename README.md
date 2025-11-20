@@ -47,6 +47,8 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 ## Phase 2: Queries
 ### Select Queries
 
-#### שאילתה 1 — פעילויות לפי חודש ושנה
+
+
+### [שאילתה 1](part2/select_query/select1/select1.sql)— פעילויות לפי חודש ושנה
 **
 השאילתה להראות כמה פעילויות התקיימו בכל חודש בכל שנה (כולל פירוק תאריך).
