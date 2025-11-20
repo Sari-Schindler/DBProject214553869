@@ -51,4 +51,9 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 
 ### [שאילתה 1](part2/select_query/select1/select1.sql)— פעילויות לפי חודש ושנה
 **
-השאילתה להראות כמה פעילויות התקיימו בכל חודש בכל שנה (כולל פירוק תאריך).
+השאילתה מראה כמה פעילויות(Activity) התקיימו בכל חודש בכל שנה (כולל פירוק תאריך).
+
+!(part2/select_query/select1/q1.png)
+!(part2/select_query/select1/r1.png)
+
+
