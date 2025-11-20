@@ -45,7 +45,8 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 - **lesson.csv** – CSV file containing lesson data.
 
 ## Phase 2: Queries
-## Select Queries
-**שאילתה 1 — פעילויות לפי חודש ושנה
+### Select Queries
+
+#### שאילתה 1 — פעילויות לפי חודש ושנה
 **
-מטרה: להראות כמה פעילויות התקיימו בכל חודש בכל שנה (כולל פירוק תאריך).
+השאילתה להראות כמה פעילויות התקיימו בכל חודש בכל שנה (כולל פירוק תאריך).
