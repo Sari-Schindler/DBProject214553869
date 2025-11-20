@@ -86,5 +86,9 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 
 השאילתה מעדכנת את שכרם של המורים המלמדים שיעורי פסנתר (Piano) בטבלת Teacher. היא משתמשת בטבלת Lesson כדי לזהות אילו מורים מלמדים שיעורים מסוג זה, ומעלה את שכרם ב־30% (מכפילה את הערך בעזרת Salary * 1.3).
 
+![image](part2/Update_query/update1/u1.png).
+
+משכורת המורים לפני ההעלאה:
 ![טבלה המציגה את שכר המורים לפני ההעלאה](part2/Update_query/update1/before.png).
+משכורת המורים אחרי ההעלאה:
 ![טבלה המציגה את שכר המורים אחרי ההעלאה](part2/Update_query/update1/after.png).
