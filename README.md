@@ -79,6 +79,22 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 ![image](part2/select_query/select4/q4.png).
 ![image](part2/select_query/select4/r4.png).
 
+### Delete Queries:
+
+
+### [שאילתה 1](part2/Delete_query/delete/delete.sql) - מחיקת כל התלמידים שלא רשומים לשום שיעור
+
+השאילתה מעדכנת את שכרם של המורים המלמדים שיעורי פסנתר (Piano) בטבלת Teacher. היא משתמשת בטבלת Lesson כדי לזהות אילו מורים מלמדים שיעורים מסוג זה, ומעלה את שכרם ב־30% (מכפילה את הערך בעזרת Salary * 1.3).
+
+![image](part2/Delete_query/deleteq/d1.png).
+
+טבלת התלמידים לפני מחיקה:
+![טבלה המציגה את כל התלמידים לפני מחיקה](part2/Delete_query/delete1/before1.png).
+טבלת התלמידים אחרי מחיקה:
+![טבלה המציגה את כל התלמידים אחרי מחיקה](part2/Update_query/update1/after.png).
+
+
+
 ### Update Queries:
 
 
