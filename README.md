@@ -92,3 +92,20 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 ![טבלה המציגה את שכר המורים לפני ההעלאה](part2/Update_query/update1/before.png).
 משכורת המורים אחרי ההעלאה:
 ![טבלה המציגה את שכר המורים אחרי ההעלאה](part2/Update_query/update1/after.png).
+
+
+### [שאילתה 2](part2/Update_query/update2/update2.sql) - הגדלת משכורת המורים שמלמדים שיעורי פסנתר
+
+השאילתה מעדכנת את תאריך הפתיחה (openDate) של שיעורים מסוג 'Piano' לתאריך 1 בדצמבר 2025.
+העדכון מתבצע רק עבור שיעורים הנלמדים בכיתות שבהן יש פחות מ־5 תלמידים.
+כדי לזהות את השיעורים הללו, השאילתה משתמשת בתת־שאילתה שמצטרפת לטבלאות Lesson, Class ו־isLearning, ומחשבת את מספר התלמידים בכל שיעור.
+
+![image](part2/Update_query/update2/u2.png).
+
+תאריכי פתיחת השיעורים לפני השינוי:
+![טבלה המציגה את תאריכי השיעורים לפני השינוי](part2/Update_query/update2/before.png).
+תאריכי פתיחת השיעורים אחרי השינוי:
+![טבלה המציגה את תאריכי השיעורים אחרי השינוי](part2/Update_query/update2/after.png).
+
+
+
