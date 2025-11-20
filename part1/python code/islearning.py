@@ -1,12 +1,16 @@
 import random
 
 # יצירת קובץ SQL
-with open('ishaving_400.sql', 'w', encoding='utf-8') as f:
-    f.write('-- קובץ SQL ל-IsHaving עם 400 שורות\n\n')
-    
-    for i in range(1, 401):
-        cid = random.randint(1, 500)   # כיתה אקראית
-        eid = random.randint(1, 400)   # ציוד אקראי
-        f.write(f"INSERT INTO MusicLesson.IsHaving (CId, EId) VALUES ({cid}, {eid});\n")
+with open('islearning_400.sql', 'w', encoding='utf-8') as f:
+    f.write('-- קובץ SQL ל-IsLearning עם 400 שורות ייחודיות\n\n')
 
-print("קובץ ishaving_400.sql נוצר בהצלחה!")
+    islearning_data = set()
+    while len(islearning_data) < 400:
+        sid = random.randint(412, 811)   # מזהה תלמיד אקראי
+        lid = random.randint(101, 250)   # מזהה שיעור אקראי
+        islearning_data.add((sid, lid))  # הוספה ל-set מונעת כפילויות
+
+    for record in islearning_data:
+        f.write(f"INSERT INTO MusicLesson.IsLearning (SId, LId) VALUES ({record[0]}, {record[1]});\n")
+
+print("קובץ islearning_400.sql נוצר בהצלחה עם 400 שורות ייחודיות!")
