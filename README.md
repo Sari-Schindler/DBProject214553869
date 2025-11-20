@@ -8,6 +8,8 @@ This project is a relational database for managing a music lesson school. It inc
 
 The project also includes SQL scripts for creating tables, inserting data, and querying the database. It is intended as an educational project to practice database design, relational modeling, and SQL operations.
 
+## Phase 1: Design and Build the Database
+
 ## Database Diagrams
 
 ### ERD
@@ -41,3 +43,9 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 
 ## Additional Files
 - **lesson.csv** – CSV file containing lesson data.
+
+## Phase 2: Queries
+## Select Queries
+**שאילתה 1 — פעילויות לפי חודש ושנה
+**
+מטרה: להראות כמה פעילויות התקיימו בכל חודש בכל שנה (כולל פירוק תאריך).
