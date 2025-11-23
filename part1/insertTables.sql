@@ -1,3 +1,4 @@
+
 -- מורים
 INSERT INTO teacher (tname, salary, email) VALUES
 ('Alice Cohen', 5000.00, 'alice.cohen@example.com'),
