@@ -1,6 +1,10 @@
-SELECT * FROM Students;
-SELECT * FROM Teachers;
-SELECT * FROM Courses;
-SELECT * FROM Lessons;
-SELECT * FROM Enrollment;
-SELECT * FROM Equipment;
+
+SELECT * FROM student;
+SELECT * FROM teacher;
+SELECT * FROM class;
+SELECT * FROM lesson;
+SELECT * FROM islearning;
+SELECT * FROM equipment;
+SELECT * FROM participatesin;
+SELECT * FROM ishaving;
+SELECT * FROM activity;
