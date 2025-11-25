@@ -14,7 +14,7 @@ The project also includes SQL scripts for creating tables, inserting data, and q
 
 ### ERD
 The ERD diagram was created using ERD PLUS and shows the relationships between the tables.
-![ERD](img/ERD.png)
+![ERD](part1/img/ERD.png)
 
 ### DSD
 The DSD diagram was created in PGADMIN after creating the tables.
@@ -25,11 +25,11 @@ Data for all tables in the database were inserted using two methods:
 
 ### Method 1 - Python Script
 All table data was inserted using a Python script. The screenshot below shows the code.
-![Python Script](img/lesoonPython.png)
+![Python Script](part1/img/lesoonPython.png)
 
 ### Method 2 - Mockaroo
 All table data was also inserted using Mockaroo. The screenshot below shows the process.
-![Insert Mockaroo](img/mockaroo.png)
+![Insert Mockaroo](part1/img/mockaroo.png)
 
 
 ## SQL Files
@@ -91,7 +91,7 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 טבלת התלמידים לפני מחיקה:
 ![טבלה המציגה את כל התלמידים לפני מחיקה](part2/Delete_query/delete1/before1.png).
 טבלת התלמידים אחרי מחיקה:
-![טבלה המציגה את כל התלמידים אחרי מחיקה](part2/Update_query/update1/after.png).
+![טבלה המציגה את כל התלמידים אחרי מחיקה](part2/Delete_query/delete1/after.png).
 
 
 
