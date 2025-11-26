@@ -1,0 +1,49 @@
+[33mcommit 071c3a1317f0934f13a0b6bf07cef73785cb36cd[m[33m ([m[1;36mHEAD -> [m[1;32mbackup_part1[m[33m, [m[1;33mtag: part1[m[33m, [m[1;31morigin/backup_part1[m[33m)[m
+Author: Sara <mss054333@gmail.com>
+Date:   Sun Nov 23 20:36:03 2025 +0200
+
+    Fix files
+
+[33mcommit 5589cebe1bbd320fdca9f52534171f562420ad93[m
+Author: Sara <mss054333@gmail.com>
+Date:   Thu Nov 20 14:08:12 2025 +0200
+
+    add folder python code
+
+[33mcommit fc9657102b43d10269a4fb29fa5b56b77943f4e2[m
+Author: Sara <mss054333@gmail.com>
+Date:   Tue Nov 18 22:44:57 2025 +0200
+
+    Add mockaroo.png
+
+[33mcommit 1cb7cbaeebf1325dbe631bb27b4326f476c7ba0a[m
+Author: Sari-Schindler <132784464+Sari-Schindler@users.noreply.github.com>
+Date:   Tue Nov 18 22:52:05 2025 +0200
+
+    Update README.md
+    
+    add DSD
+
+[33mcommit 5c38448e1507f44098306bb79e1ca4520847a291[m
+Author: Sari-Schindler <132784464+Sari-Schindler@users.noreply.github.com>
+Date:   Tue Nov 18 22:46:57 2025 +0200
+
+    Create README.md
+
+[33mcommit 149c647bb86084528adb6c53d2884099d7cf9842[m
+Author: Sara <mss054333@gmail.com>
+Date:   Tue Nov 18 22:30:45 2025 +0200
+
+    Moved files to part1 and deleted old README files
+
+[33mcommit 6a7a998bca4076f7ad6a0927e7e004c7427d2e93[m
+Author: Sara <mss054333@gmail.com>
+Date:   Tue Nov 18 22:21:36 2025 +0200
+
+    Initial commit
+
+[33mcommit b6721502aff24cc06161b7a7b6514c5dcabe6daf[m
+Author: Sari-Schindler <132784464+Sari-Schindler@users.noreply.github.com>
+Date:   Tue Nov 18 22:19:24 2025 +0200
+
+    Initial commit
