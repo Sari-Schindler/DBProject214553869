@@ -1,4 +1,4 @@
-###### Music Lesson System
+# Music Lesson System
 
 **Author**
 Sara Schindler
