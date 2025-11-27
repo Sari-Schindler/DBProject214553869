@@ -144,11 +144,11 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 
 ### Rollback&Commit:
  **[rollbackCommit.sql](part2/rollbackCommit/rb.sql)**
+ 
  ביצוע Rollback לשאילתה אחרי עדכון:
-  **[rollbackCommit.sql](part2/rollbackCommit/afterRollback.sql)**
+  **![image](part2/rollbackCommit/afterRollback.sql)**
    ביצוע Commit לשאילתה אחרי עדכון:
-
-  **[rollbackCommit.sql](part2/rollbackCommit/afterCommit.sql)**
+  **![image](part2/rollbackCommit/afterCommit.sql)**
 
 
 
