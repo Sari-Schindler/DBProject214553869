@@ -146,9 +146,9 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
  **[rollbackCommit.sql](part2/rollbackCommit/rb.sql)**
  
  ביצוע Rollback לשאילתה אחרי עדכון:
-  **![image](part2/rollbackCommit/afterRollback.sql)**
+  **![image](part2/rollbackCommit/afterRollback.png)**
    ביצוע Commit לשאילתה אחרי עדכון:
-  **![image](part2/rollbackCommit/afterCommit.sql)**
+  **![image](part2/rollbackCommit/afterCommit.png)**
 
 
 
