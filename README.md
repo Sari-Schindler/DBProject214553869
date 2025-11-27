@@ -34,7 +34,7 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 
 ## SQL Files
 
-- **createTables.sql** – Creates all the tables in the correct order.  
+- **[createTables.sql].(part1/createTables.sql)** – Creates all the tables in the correct order.  
 - **dropTables.sql** – Drops all the tables in the correct order.  
 - **insertTables.sql** – Inserts the data into the tables.  
 - **selectAll.sql** – Queries for verifying and displaying the table content.
@@ -43,6 +43,7 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 
 ## Additional Files
 - **lesson.csv** – CSV file containing lesson data.
+- 
 
 ## Phase 2: Queries
 
