@@ -35,15 +35,15 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 ## SQL Files
 
 - **[createTables.sql](part1/createTables.sql)** – Creates all the tables in the correct order.  
-- **dropTables.sql** – Drops all the tables in the correct order.  
-- **insertTables.sql** – Inserts the data into the tables.  
-- **selectAll.sql** – Queries for verifying and displaying the table content.
+- **[dropTables.sql](part1/[dropTables.sql)** – Drops all the tables in the correct order.  
+- **[insertTables.sql](part1/[insertTables.sql)** – Inserts the data into the tables.  
+- **[selectAll.sql](part1/selectAll.sql)** – Queries for verifying and displaying the table content.
 
 ---
 
 ## Additional Files
 - **lesson.csv** – CSV file containing lesson data.
-- 
+- **[backUp](part1/musicLsson.backup)** - backup file for part 1.
 
 ## Phase 2: Queries
 
@@ -123,6 +123,10 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 ![טבלה המציגה את תאריכי השיעורים לפני השינוי](part2/Update_query/update2/before2.png).
 תאריכי פתיחת השיעורים אחרי השינוי:
 ![טבלה המציגה את תאריכי השיעורים אחרי השינוי](part2/Update_query/update2/after2.png).
+
+### Constraints:
+- **[Constraints.sql](part2/Constraints/Constraints.sql)**
+
 
 
 
