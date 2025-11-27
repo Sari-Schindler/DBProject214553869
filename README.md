@@ -127,6 +127,13 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 ### Constraints:
 - **[Constraints.sql](part2/Constraints/Constraints.sql)**
 
+האילוץ הראשון הוא CHECK על עמודת השכר של המורים (Teacher.Salary), שמונע הכנסת ערכים שליליים – כל ניסיון להכניס או לעדכן שכר שלילי יחזיר שגיאה, וכך נשמרת הלוגיקה העסקית של המערכת.
+![image](part2/Constraints/check.png).
+
+ננסה להכניס מורה עם משכורת שלילית ונקבל שגיאה:
+![image](part2/Constraints/checkn.png).
+
+
 
 
 
