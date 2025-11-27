@@ -142,3 +142,14 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 האילוץ השלישי הוא DEFAULT על מספר התלמידים המקסימלי בכיתה (Class.MaxStudents), שמגדיר ברירת מחדל של 20 אם לא הוזן ערך; זה מאפשר הכנסת שורות חדשות בקלות ומונע NULLים מיותרים, תוך שמירה על ערך הגיוני.
 ![image](part2/Constraints/default.png).
 
+### Rollback&Commit:
+ **[rollbackCommit.sql](part2/rollbackCommit/rb.sql)**
+ ביצוע Rollback לשאילתה אחרי עדכון:
+  **[rollbackCommit.sql](part2/rollbackCommit/afterRollback.sql)**
+   ביצוע Commit לשאילתה אחרי עדכון:
+
+  **[rollbackCommit.sql](part2/rollbackCommit/afterCommit.sql)**
+
+
+
+
