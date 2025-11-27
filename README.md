@@ -125,7 +125,7 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 ![טבלה המציגה את תאריכי השיעורים אחרי השינוי](part2/Update_query/update2/after2.png).
 
 ### Constraints:
-- **[Constraints.sql](part2/Constraints/Constraints.sql)**
+ **[Constraints.sql](part2/Constraints/Constraints.sql)**
 
 האילוץ הראשון הוא CHECK על עמודת השכר של המורים (Teacher.Salary), שמונע הכנסת ערכים שליליים – כל ניסיון להכניס או לעדכן שכר שלילי יחזיר שגיאה, וכך נשמרת הלוגיקה העסקית של המערכת.
 ![image](part2/Constraints/check.png).
@@ -133,7 +133,10 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 ננסה להכניס מורה עם משכורת שלילית ונקבל שגיאה:
 ![image](part2/Constraints/checkn.png).
 
-
-
-
+האילוץ השני הוא NOT NULL על משך השיעור (Lesson.Duration), שמחייב שכל שיעור יקבל ערך עבור אורכו. הכנסת NULL או השמטת הערך תגרום לשגיאה, מה שמבטיח שניתן יהיה לנהל את השיעורים בצורה נכונה וללא חוסר נתונים.
+![image](part2/Constraints/notNull.png).
+ננסה להכניס שיעור שאורכו NULL ונקבל שגיאה:
+![image](part2/Constraints/notNulln.png).
+האילוץ השלישי הוא DEFAULT על מספר התלמידים המקסימלי בכיתה (Class.MaxStudents), שמגדיר ברירת מחדל של 20 אם לא הוזן ערך; זה מאפשר הכנסת שורות חדשות בקלות ומונע NULLים מיותרים, תוך שמירה על ערך הגיוני.
+![image](part2/Constraints/default.png).
 
