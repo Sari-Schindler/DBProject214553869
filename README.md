@@ -157,13 +157,79 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 ## Phase 3: Integration
 ### New Department
 
- DSD:
+ -DSD:
   ![image](part3/Img/DSD.png)
- ERD:
+ -ERD:
   ![image](part3/Img/ERD.png)
 
 ### Unified Databases
- DSD:
+ -DSD:
   ![image](part3/Img/DSD2.png)
- ERD:
+ -ERD:
   ![image](part3/Img/ERD2.png)
+
+  
+### Integration Decisions  
+[📜 View integrate.sql](part3/Integrate.sql)
+#### 1. Unifying Student and Client Entities 
+כדי למנוע כפילות בין ישות ה-Student (מערכת המוזיקה) לישות ה-Client (מערכת הספורט), הוחלט לאחדן לישות אחת. מאחר שטבלת ה-Student כבר הכילה את רוב המידע, בחרנו להרחיב אותה.
+
+הוספת שדות: הוספנו את העמודה enterdate שהייתה קיימת באגף הספורט לטבלת הסטודנטים כדי לשמור על נתוני ההצטרפות של הלקוחות:
+```sql
+ ALTER TABLE Student ADD COLUMN enterdate DATE;
+);
+```
+#### 2. Integrating Feedback and Quality Control 
+הטמענו את מערכת המשובים מהאגף החדש כדי לאפשר בקרה על איכות ההוראה במרכז המוזיקה.
+
+קישור ישויות: טבלת ה-Feedback קושרה לטבלת ה-Student באמצעות מפתח זר (SId). החלטה זו מאפשרת לשייך כל משוב לתלמיד ספציפי ולוודא תקינות נתונים (Referential Integrity)::
+```sql
+ ALTER TABLE Feedback 
+ ADD CONSTRAINT feedback_sid_fkey 
+ FOREIGN KEY (SId) REFERENCES Student(SId););
+```
+#### 3. Enhancing Physical Resource Management (Room Integration) 
+במערכת המקורית, שיעורים לא היו משויכים למיקום פיזי. אימצנו את ישות ה-Room מאגף הספורט כדי לנהל את חדרי הלימוד.
+
+הרחבת טבלת Lesson: הוספנו עמודת roomnum לטבלת השיעורים כדי לשייך כל שיעור לחדר שבו הוא מתקיים:
+```sql
+ ALTER TABLE Lesson ADD COLUMN roomnum INT;
+ ALTER TABLE Lesson 
+ ADD CONSTRAINT lesson_roomnum_fkey 
+ FOREIGN KEY (roomnum) REFERENCES Room(roomnum);
+```
+
+#### 4. Equipment Relocation Decision
+בניתוח ה-ERD המשולב, הוחלט לשנות את הקשר של הציוד (Equipment). במקום שציוד יהיה משויך לקבוצת לימוד ערטילאית, הוא קושר פיזית לחדר (Room).
+
+היגיון לוגיסטי: החלטה זו מאפשרת מעקב מדויק אחרי מלאי הציוד הקיים בכל חלל עבודה פיזי במרכז.
+
+#### 5. Data Migration and Population 
+כדי להבטיח שהמערכת המשולבת תהיה מבצעית מיד, בוצע תהליך הזנת נתונים (Data Seeding) תוך שמירה על קשרי גומלין:
+
+יצירת ישויות אב: ראשית הוכנסו נתונים לטבלאות Student, Teacher ו-Room.
+
+קישור ישויות בן: לאחר מכן עודכנו טבלאות ה-Lesson וה-Feedback תוך שימוש בשאילתות משנה (Subqueries) כדי להבטיח התאמה למפתחות הזרים הקיימים:
+```sql
+ UPDATE Lesson SET roomnum = (SELECT roomnum FROM Room LIMIT 1) 
+ WHERE LId = (SELECT LId FROM Lesson LIMIT 1);
+```
+#### 6. Database Optimization via Views
+כדי לפשט את הגישה לנתונים המאוחדים, יצרנו מבטים (Views) המבצעים JOIN בין הטבלאות החדשות לישנות:
+
+LessonAssignments: מאחד את נתוני השיעור, המורה והחדר הפיזי.
+
+StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני המשוב ומבצע סיווג לוגי (CASE) של רמת שביעות הרצון.
+
+#### 7. Handling Missing Data (NULL Management)
+במהלך יצירת המבטים, נתקלנו במצב שבו לא לכל שיעור שובץ עדיין מורה או חדר. כדי להבטיח שכל השיעורים יופיעו בדוחות הניהוליים גם אם חסר בהם מידע, בחרנו להשתמש ב-LEFT JOIN.
+
+החלטה טכנית: שימוש ב-JOIN רגיל היה "מעלים" שיעורים ללא חדר. ה-LEFT JOIN מאפשר להציג את השיעור עם ערך NULL בעמודת החדר/מורה, מה שמהווה אינדיקציה למנהל המערכת שנדרש שיבוץ:
+
+-- מתוך המבט LessonAssignments
+```sql
+ FROM Lesson L
+ LEFT JOIN Teacher T ON L.TId = T.TId
+ LEFT JOIN Room R ON L.roomnum = R.roomnum;
+```
+החלטה זו מבטיחה שלמות נתונים (Data Integrity) ברמת התצוגה, כך ששום שיעור לא "נעלם" מהמערכת בשל חוסר בנתונים לוגיסטיים.
