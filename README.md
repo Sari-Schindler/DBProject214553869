@@ -154,4 +154,10 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 ## Backup
 - **[backup part 2](part2/musicLesson_part2.backup)** - backup file for part 2.
 
+## Phase 3: Integration
+### New Department
+- DSD:
+  ![image](part3/Img/DSD.png)
+- ERD:
+  ![image](part3/Img/ERD.png)
 
