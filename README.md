@@ -228,6 +228,7 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
 
 -- מתוך המבט LessonAssignments
 ```sql
+ SELECT L.LName, T.TName, R.roomname
  FROM Lesson L
  LEFT JOIN Teacher T ON L.TId = T.TId
  LEFT JOIN Room R ON L.roomnum = R.roomnum;
