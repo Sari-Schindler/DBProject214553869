@@ -156,8 +156,14 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
 
 ## Phase 3: Integration
 ### New Department
+
 - DSD:
   ![image](part3/Img/DSD.png)
 - ERD:
   ![image](part3/Img/ERD.png)
 
+### Unified Databases
+- DSD:
+  ![image](part3/Img/DSD2.png)
+- ERD:
+  ![image](part3/Img/ERD2.png)
