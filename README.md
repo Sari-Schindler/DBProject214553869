@@ -168,17 +168,17 @@ All table data was also inserted using Mockaroo. The screenshot below shows the 
  -ERD:
   ![image](part3/Img/ERD2.png)
 
-  
 ### Integration Decisions  
 [📜 View integrate.sql](part3/Integrate.sql)
+
 #### 1. Unifying Student and Client Entities 
 כדי למנוע כפילות בין ישות ה-Student (מערכת המוזיקה) לישות ה-Client (מערכת הספורט), הוחלט לאחדן לישות אחת. מאחר שטבלת ה-Student כבר הכילה את רוב המידע, בחרנו להרחיב אותה.
 
-הוספת שדות: הוספנו את העמודה enterdate שהייתה קיימת באגף הספורט לטבלת הסטודנטים כדי לשמור על נתוני ההצטרפות של הלקוחות:
+**הוספת שדות:** הוספנו את העמודה `enterdate` שהייתה קיימת באגף הספורט לטבלת הסטודנטים כדי לשמור על נתוני ההצטרפות של הלקוחות:
 ```sql
- ALTER TABLE Student ADD COLUMN enterdate DATE;
-);
+ALTER TABLE Student ADD COLUMN enterdate DATE DEFAULT CURRENT_DATE;
 ```
+
 #### 2. Integrating Feedback and Quality Control 
 הטמענו את מערכת המשובים מהאגף החדש כדי לאפשר בקרה על איכות ההוראה במרכז המוזיקה.
 
