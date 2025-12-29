@@ -248,6 +248,62 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
 - היום בשבוע בו מתקיים השיעור
 
 ```sql
-SELECT * FROM MusicLesson.LessonAssignments;
+ SELECT * FROM MusicLesson.LessonAssignments;
  ```
+  ![image](part3/v1.png)
 
+# שאילתה 1: ניתוח תפוסת חדרים
+שאילתה זו מציגה את מספר השיעורים המשובצים לכל חדר, מה שעוזר בזיהוי עומסים במרכז.
+```sql
+ SELECT "שם החדר", COUNT(*) AS "כמות שיעורים" 
+ FROM MusicLesson.LessonAssignments 
+ GROUP BY "שם החדר";
+ ```
+ ![image](part3/v1.1.png)
+
+
+# שאילתה 2: איתור שיעורים ברמה מתקדמת ומיקומם
+רשימת כל השיעורים המוגדרים ברמת 'Advanced' ושמות המורים המשובצים אליהם.
+```sql
+ SELECT "שם השיעור", "שם המורה", "שם החדר" 
+ FROM MusicLesson.LessonAssignments 
+ WHERE "רמת השיעור" = 'Advanced';
+ ```
+ ![image](part3/v1.2.png)
+
+
+#### מבט 2: StudentSatisfactionReport (דוח שביעות רצון תלמידים))
+
+##### תיאור המבט
+מבט זה משמש כלוח בקרה לאיכות השירות, המקשר בין פרטי התלמידים למשובים שהם הזינו. המבט כולל:
+
+-שם התלמיד
+-נושא המשוב והציון שניתן (1-5)
+-סטטוס שביעות רצון (מחושב לוגית: "שביעות רצון גבוהה", "סביר", או "דורש שיפור")
+-תאריך המשוב
+
+```sql
+ SELECT * FROM MusicLesson.StudentSatisfactionReport;
+ ```
+  ![image](part3/v2.png)
+
+
+# שאילתה 1: דוח מקרים דחופים לטיפול
+ מזהה את כל המשובים שבהם הסטטוס הוא "דורש שיפור" (ציון 1-2) כדי לאפשר טיפול מהיר בתלמידים לא מרוצים.
+```sql
+  SELECT "שם התלמיד", "נושא המשוב", "ציון"
+ FROM MusicLesson.StudentSatisfactionReport
+ WHERE "סטטוס שביעות רצון" = 'Needs Improvement';
+ ```
+ ![image](part3/v2.1.png)
+
+ 
+# שאילתה 2: ממוצע ציונים לפי נושא 
+מחשב את הציון הממוצע עבור כל תחום (מקצועיות, תחזוקה, יחס אישי) כדי להבין איפה המרכז מצטיין ואיפה עליו להשתפר.
+```sql
+ SELECT "נושא המשוב", ROUND(AVG("ציון"), 2) AS "ציון ממוצע"
+ FROM MusicLesson.StudentSatisfactionReport
+ GROUP BY "נושא המשוב"
+ ORDER BY "ציון ממוצע" DESC;
+ ```
+ ![image](part3/v2.2.png)
