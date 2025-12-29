@@ -307,3 +307,7 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
  ORDER BY "ציון ממוצע" DESC;
  ```
  ![image](part3/v2.2.png)
+
+ 
+## Backup
+- **[backup part 3](part3/backup_3.backup)** - backup file for part 3.
