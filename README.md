@@ -314,12 +314,13 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
 
 ## Phase 4: Programming (PL/pgSQL)
 בשלב זה הוטמעה לוגיקה עסקית מתקדמת בבסיס הנתונים באמצעות פרוצדורות, פונקציות וטריגרים. המטרה היא להפוך את המערכת לאוטומטית, מאובטחת וחסינה לשגיאות.
-📜 לצפייה בקובצי התכנות
-fn_CheckDiscount.sql – פונקציית הנחות.
+📜 [לצפייה בקובצי התכנות](part4)
 
-pr_SafeRegister.sql – פרוצדורת רישום מאובטח.
+-**[fn_CheckDiscount.sql](part4/fn_CheckDiscount.sql)** – פונקציית הנחות.
 
-trg_RoomCapacity.sql – טריגר הגבלת תפוסה.
+-**[pr_SafeRegister.sql](part4/pr_SafeRegister.sql)** – פרוצדורת רישום מאובטח.
 
-Main_Script.sql – תוכנית הרצה ובדיקה.
+-**[trg_RoomCapacity.sql](part4/trg_RoomCapacity.sql)** – טריגר הגבלת תפוסה.
+
+-**[Main_Script.sql](part4/Main_Script.sql)** – תוכנית הרצה ובדיקה.
 
