@@ -311,3 +311,15 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
  
 ## Backup
 - **[backup part 3](part3/backup_3.backup)** - backup file for part 3.
+
+## Phase 4: Programming (PL/pgSQL)
+בשלב זה הוטמעה לוגיקה עסקית מתקדמת בבסיס הנתונים באמצעות פרוצדורות, פונקציות וטריגרים. המטרה היא להפוך את המערכת לאוטומטית, מאובטחת וחסינה לשגיאות.
+📜 לצפייה בקובצי התכנות
+fn_CheckDiscount.sql – פונקציית הנחות.
+
+pr_SafeRegister.sql – פרוצדורת רישום מאובטח.
+
+trg_RoomCapacity.sql – טריגר הגבלת תפוסה.
+
+Main_Script.sql – תוכנית הרצה ובדיקה.
+
