@@ -1,0 +1,18 @@
+CREATE OR REPLACE PROCEDURE musiclesson.pr_SafeRegister(p_sid INT, p_lid INT)
+AS $$
+DECLARE
+    v_rec RECORD; -- שימוש ב-Record
+BEGIN
+    RAISE NOTICE 'בדיקת קורסים קיימים לתלמיד:';
+    -- לולאת FOR שהיא למעשה Cursor מפורש
+    FOR v_rec IN SELECT lid FROM musiclesson.islearning WHERE sid = p_sid LOOP
+        RAISE NOTICE 'התלמיד כבר רשום לשיעור מספר %', v_rec.lid;
+    END LOOP;
+
+    INSERT INTO musiclesson.islearning (sid, lid) VALUES (p_sid, p_lid);
+    RAISE NOTICE 'התלמיד נרשם בהצלחה!';
+EXCEPTION
+    WHEN OTHERS THEN
+        RAISE NOTICE 'שגיאה: %', SQLERRM;
+END;
+$$ LANGUAGE plpgsql;
