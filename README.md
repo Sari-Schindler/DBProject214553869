@@ -524,16 +524,17 @@ python main_app.py
 ### מבנה האפליקציה (ארכיטקטורה)
  האפליקציה בנויה במבנה מודולרי להפרדה בין העיצוב, החיבור למסד הנתונים והמסכים השונים:
 
+```
  Phase 5/
-│
-├── main_app.py           # Main entry point & Navigation Menu
-├── database.py           # Database connection & Configuration
-├── styles.py             # Global UI styling and themes
-└── screens/              # Individual functional modules
-    ├── students.py       # Student CRUD interface
-    ├── lessons.py        # Lesson management
-    ├── registration.py   # Procedures & Functions execution
-    ├── reports.py        # Query reports interface
-    └── about.py          # System information screen
-
+ │
+ ├── main_app.py           # Main entry point & Navigation Menu
+ ├── database.py           # Database connection & Configuration
+ ├── styles.py             # Global UI styling and themes
+ └── screens/              # Individual functional modules
+     ├── students.py       # Student CRUD interface
+     ├── lessons.py        # Lesson management
+     ├── registration.py   # Procedures & Functions execution
+     ├── reports.py        # Query reports interface
+     └── about.py          # System information screen
+```
 
