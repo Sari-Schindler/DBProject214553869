@@ -314,6 +314,7 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
 
 ## Phase 4: Programming (PL/pgSQL)
 
+
 בשלב זה הוטמעה לוגיקה עסקית מתקדמת בבסיס הנתונים באמצעות פונקציות, פרוצדורות וטריגרים ב-PL/pgSQL. המטרה היא להפוך את המערכת לאוטומטית, מאובטחת וחסינה לשגיאות.
 
 📜 [לצפייה בקובצי התכנות](part4)
@@ -458,6 +459,46 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
 ![image](part4/screenshot/2.png)
 
 **[backup part 4](part4/backup_4.backup)** - backup file for part 4.
+
+## Phase 5: Desktop Application (GUI)
+
+##### סקירת האפליקציה
+
+מערכת ניהול בית הספר למוזיקה היא אפליקציה שולחנית מקיפה שנבנתה באמצעות ספריית Tkinter של Python. האפליקציה מספקת ממשק משתמש גרפי ידידותי לניהול כל היבטי בסיס הנתונים, כולל ניהול תלמידים, שיעורים, רישום מאובטח והפקת דוחות אנליטיים.
+
+##### דרישות מערכת:
+-**Operating System:** Windows 10/11, macOS, or Linux.
+
+-***Python Version:** Python 3.x.
+
+-**Required Libraries:**
+
+-tkinter (Standard GUI library).
+
+-psycopg2 (PostgreSQL adapter for Python).
+
+##### הוראות התקנה והרצה
+
+1. **התקנת ספריות נדרשות:**
+   
+```bash
+   pip install psycopg2-binary
+   ```
+
+2. **הגדרת בסיס הנתונים:**
+
+   -וידוא ששרת ה-PostgreSQL פועל בפורט 5433.
+
+   -המערכת מתחברת אוטומטית לבסיס הנתונים MusicLesson לפי ההגדרות בקובץ database.py.
+
+   3. **הרצת האפליקציה:** יש להריץ את הקובץ הראשי:
+   
+הרצת האפליקציה: יש להריץ את הקובץ הראשי:
+
+```bash
+python main_app.py
+   ```
+
 
 
 
