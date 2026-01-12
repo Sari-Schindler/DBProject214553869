@@ -467,15 +467,15 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
 מערכת ניהול בית הספר למוזיקה היא אפליקציה שולחנית מקיפה שנבנתה באמצעות ספריית Tkinter של Python. האפליקציה מספקת ממשק משתמש גרפי ידידותי לניהול כל היבטי בסיס הנתונים, כולל ניהול תלמידים, שיעורים, רישום מאובטח והפקת דוחות אנליטיים.
 
 ### דרישות מערכת:
--**Operating System:** Windows 10/11, macOS, or Linux.
+- **Operating System:** Windows 10/11, macOS, or Linux.
 
--***Python Version:** Python 3.x.
+- **Python Version:** Python 3.x.
 
--**Required Libraries:**
+- **Required Libraries:**
 
--tkinter (Standard GUI library).
+- tkinter (Standard GUI library).
 
--psycopg2 (PostgreSQL adapter for Python).
+- psycopg2 (PostgreSQL adapter for Python).
 
 ### הוראות התקנה והרצה
 
