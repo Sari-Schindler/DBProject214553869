@@ -313,14 +313,153 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
 - **[backup part 3](part3/backup_3.backup)** - backup file for part 3.
 
 ## Phase 4: Programming (PL/pgSQL)
-בשלב זה הוטמעה לוגיקה עסקית מתקדמת בבסיס הנתונים באמצעות פרוצדורות, פונקציות וטריגרים. המטרה היא להפוך את המערכת לאוטומטית, מאובטחת וחסינה לשגיאות.
+
+בשלב זה הוטמעה לוגיקה עסקית מתקדמת בבסיס הנתונים באמצעות פונקציות, פרוצדורות וטריגרים ב-PL/pgSQL. המטרה היא להפוך את המערכת לאוטומטית, מאובטחת וחסינה לשגיאות.
+
 📜 [לצפייה בקובצי התכנות](part4)
 
--**[fn_CheckDiscount.sql](part4/fn_CheckDiscount.sql)** – פונקציית הנחות.
+#### 1. פונקציית חישוב הנחה (fn_CheckDiscount)
 
--**[pr_SafeRegister.sql](part4/pr_SafeRegister.sql)** – פרוצדורת רישום מאובטח.
+פונקציה זו מחשבת את אחוז ההנחה המגיע לתלמיד על סמך רמת הפעילות שלו בבית הספר:##### אלמנטים תכנותיים:
 
--**[trg_RoomCapacity.sql](part4/trg_RoomCapacity.sql)** – טריגר הגבלת תפוסה.
+- ספירת כמות הקורסים הפעילים של התלמיד בטבלת islearning.
 
--**[Main_Script.sql](part4/Main_Script.sql)** – תוכנית הרצה ובדיקה.
+- שימוש ב-Implicit Cursor (דרך פקודת SELECT INTO) לשליפת הנתונים.
+
+- קביעת מדרגות הנחה דינמיות:
+- 
+-  -3 קורסים ומעלה: 20% הנחה.
+
+-  -1-2 קורסים: 10% הנחה.
+
+-  -ללא קורסים: 0% הנחה.
+
+-  ##### 🧾 קוד
+
+-  ```sql
+   CREATE OR REPLACE FUNCTION musiclesson.fn_CheckDiscount(p_sid INT)
+   RETURNS NUMERIC AS $$
+   DECLARE
+       v_count INT;
+   BEGIN
+       -- Implicit Cursor: ספירת קורסי התלמיד
+       SELECT COUNT(*) INTO v_count FROM musiclesson.islearning WHERE sid = p_sid;
+       
+       -- לוגיקת הנחות
+       IF v_count >= 3 THEN RETURN 0.20; 
+       ELSIF v_count >= 1 THEN RETURN 0.10; 
+       ELSE RETURN 0;
+       END IF;
+   END;
+   $$ LANGUAGE plpgsql;
+ ``
+
+  
+  
+
+
+#### 2. פרוצדורת רישום מאובטח (pr_SafeRegister)
+
+פרוצדורה זו מבצעת רישום מאובטח של תלמיד לשיעור. היא מבטיחה שקיפות למשתמש ושמירה על שלמות הנתונים על ידי:
+
+- שימוש ב-Explicit Cursor (לולאת FOR על שאילתה) שעובר ומדפיס את כל השיעורים הקיימים של התלמיד לפני הרישום החדש.
+
+- שימוש במשתנה מסוג RECORD (v_rec) לניהול שורות הנתונים באופן דינמי.
+
+- ביצוע פקודת DML להכנסת הרישום החדש.
+
+- הטמעת טיפול בחריגות (Exception Handling) שתופס שגיאות (כמו כפילות מפתחות או חסימה על ידי טריגר) ומציג הודעה ידידותית למשתמש במקום לקרוס.
+
+##### 🧾 קוד
+-  ```sql
+   CREATE OR REPLACE PROCEDURE musiclesson.pr_SafeRegister(p_sid INT, p_lid INT)
+   AS $$
+   DECLARE
+       v_rec RECORD; 
+   BEGIN
+       RAISE NOTICE 'בדיקת קורסים קיימים לתלמיד:';
+       
+       -- Explicit Cursor: מעבר על רישומים קיימים
+       FOR v_rec IN SELECT lid FROM musiclesson.islearning WHERE sid = p_sid LOOP
+           RAISE NOTICE 'התלמיד כבר רשום לשיעור מספר %', v_rec.lid;
+       END LOOP;
+   
+       -- ביצוע הרישום
+       INSERT INTO musiclesson.islearning (sid, lid) VALUES (p_sid, p_lid);
+       RAISE NOTICE 'התלמיד נרשם בהצלחה!';
+   
+   EXCEPTION
+       WHEN OTHERS THEN
+           RAISE NOTICE 'שגיאה ברישום (נתפס ב-Exception): %', SQLERRM;
+   END;
+   $$ LANGUAGE plpgsql;
+ ``
+#### 3. טריגר הגבלת תפוסה בחדר (trg_RoomLimit)
+
+הטריגר אוכף מגבלת קיבולת פיזית בחדרי הלימוד. לפני הוספת תלמיד לשיעור, פונקציית הטריגר בודקת האם מספר הרשומים הנוכחי הגיע למקסימום המותר בחדר (20 תלמידים כברירת מחדל). במידה והחדר מלא, הטריגר זורק שגיאה (RAISE EXCEPTION) וחוסם את הטרנזקציה.
+
+##### 🧾 קוד
+-  ```sql
+   CREATE OR REPLACE FUNCTION musiclesson.fn_LimitStudents()
+   RETURNS TRIGGER AS $$
+   DECLARE
+       v_max INT := 20; 
+       v_current INT;
+   BEGIN
+       SELECT COUNT(*) INTO v_current FROM musiclesson.islearning WHERE lid = NEW.lid;
+   
+       IF v_current >= v_max THEN
+           RAISE EXCEPTION 'החדר מלא! תפוסה מקסימלית: %', v_max;
+       END IF;
+       RETURN NEW;
+   END;
+   $$ LANGUAGE plpgsql;
+ ``
+
+
+
+##### הגדרת הטריגר:
+-  ```sql
+   CREATE TRIGGER trg_RoomLimit
+   BEFORE INSERT ON musiclesson.islearning
+   FOR EACH ROW EXECUTE FUNCTION musiclesson.fn_LimitStudents();
+ ``
+
+#### 4. תכנית ראשית
+
+##### תוכנית בדיקה משולבת: רישום והנחות
+
+התוכנית מדגימה את השילוב בין כל רכיבי הקוד:
+
+שליפת נתונים דינמית של תלמיד ושיעור קיימים.
+
+קריאה לפונקציית ההנחה לחישוב זכאות התלמיד.
+
+הפעלת הפרוצדורה לרישום, שמפעילה את ה-Cursor המפורש ואת בדיקת הטריגר מאחורי הקלעים.
+
+#### הוכחות הרצה:
+
+##### 1. הוכחת לוגיקה ו-Cursor מפורש
+
+צילום זה מציג את פלט התוכנית הראשית. ניתן לראות שה-Explicit Cursor זיהה והדפיס את היסטוריית השיעורים של התלמיד (שיעורים 132, 240, 105 ו-8) וחישב הנחה של 20%.
+
+![image](part4/1.png)
+
+##### 2. הוכחת טיפול בחריגות (Exception Handling)
+
+כאן מוצגת יכולת המערכת להתמודד עם שגיאות. בעת ניסיון רישום כפול, הפרוצדורה תופסת את השגיאה (duplicate key) ומציגה הודעת NOTICE מסודרת במקום לקרוס.
+
+![image](part4/3.png)
+
+##### 3. הוכחת עדכון מסד הנתונים
+
+אימות סופי המראה כי פעולת הרישום בוצעה בהצלחה והנתונים (תלמיד 413 בשיעור 8) נשמרו פיזית בטבלת הרישום.
+
+![image](part4/2.png)
+
+- **[backup part 4](part4/backup_4.backup)** - backup file for part 3.
+
+
+
+
 
