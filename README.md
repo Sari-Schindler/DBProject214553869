@@ -443,21 +443,21 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
 
 צילום זה מציג את פלט התוכנית הראשית. ניתן לראות שה-Explicit Cursor זיהה והדפיס את היסטוריית השיעורים של התלמיד (שיעורים 132, 240, 105 ו-8) וחישב הנחה של 20%.
 
-![image](part4/1.png)
+![image](part4/screenshot/1.png)
 
 ##### 2. הוכחת טיפול בחריגות (Exception Handling)
 
 כאן מוצגת יכולת המערכת להתמודד עם שגיאות. בעת ניסיון רישום כפול, הפרוצדורה תופסת את השגיאה (duplicate key) ומציגה הודעת NOTICE מסודרת במקום לקרוס.
 
-![image](part4/3.png)
+![image](part4/screenshot/3.png)
 
 ##### 3. הוכחת עדכון מסד הנתונים
 
 אימות סופי המראה כי פעולת הרישום בוצעה בהצלחה והנתונים (תלמיד 413 בשיעור 8) נשמרו פיזית בטבלת הרישום.
 
-![image](part4/2.png)
+![image](part4/screenshot/2.png)
 
-- **[backup part 4](part4/backup_4.backup)** - backup file for part 3.
+- **[backup part 4](part4/backup_4.backup)** - backup file for part 4.
 
 
 
