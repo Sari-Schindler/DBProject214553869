@@ -328,13 +328,13 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
 
 - קביעת מדרגות הנחה דינמיות:
 - 
--  -3 קורסים ומעלה: 20% הנחה.
+-  3 קורסים ומעלה: 20% הנחה.
 
--  -1-2 קורסים: 10% הנחה.
+-  1-2 קורסים: 10% הנחה.
 
--  -ללא קורסים: 0% הנחה.
+-  ללא קורסים: 0% הנחה.
 
--  ##### 🧾 קוד
+  ##### 🧾 קוד
 
 -  ```sql
    CREATE OR REPLACE FUNCTION musiclesson.fn_CheckDiscount(p_sid INT)
@@ -352,7 +352,7 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
        END IF;
    END;
    $$ LANGUAGE plpgsql;
- ``
+ 
 
   
   
@@ -393,7 +393,7 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
            RAISE NOTICE 'שגיאה ברישום (נתפס ב-Exception): %', SQLERRM;
    END;
    $$ LANGUAGE plpgsql;
- ``
+ 
 #### 3. טריגר הגבלת תפוסה בחדר (trg_RoomLimit)
 
 הטריגר אוכף מגבלת קיבולת פיזית בחדרי הלימוד. לפני הוספת תלמיד לשיעור, פונקציית הטריגר בודקת האם מספר הרשומים הנוכחי הגיע למקסימום המותר בחדר (20 תלמידים כברירת מחדל). במידה והחדר מלא, הטריגר זורק שגיאה (RAISE EXCEPTION) וחוסם את הטרנזקציה.
@@ -414,7 +414,7 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
        RETURN NEW;
    END;
    $$ LANGUAGE plpgsql;
- ``
+ 
 
 
 
@@ -423,7 +423,7 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
    CREATE TRIGGER trg_RoomLimit
    BEFORE INSERT ON musiclesson.islearning
    FOR EACH ROW EXECUTE FUNCTION musiclesson.fn_LimitStudents();
- ``
+ 
 
 #### 4. תכנית ראשית
 
@@ -457,7 +457,7 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
 
 ![image](part4/screenshot/2.png)
 
-- **[backup part 4](part4/backup_4.backup)** - backup file for part 4.
+**[backup part 4](part4/backup_4.backup)** - backup file for part 4.
 
 
 
