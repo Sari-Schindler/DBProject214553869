@@ -473,9 +473,9 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
 
 - **Required Libraries:**
 
-- tkinter (Standard GUI library).
+-   tkinter (Standard GUI library).
 
-- psycopg2 (PostgreSQL adapter for Python).
+-   psycopg2 (PostgreSQL adapter for Python).
 
 ### הוראות התקנה והרצה
 
@@ -487,9 +487,9 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
 
  **הגדרת בסיס הנתונים:**
 
-   -וידוא ששרת ה-PostgreSQL פועל בפורט 5433.
+   - וידוא ששרת ה-PostgreSQL פועל בפורט 5433.
 
-   -המערכת מתחברת אוטומטית לבסיס הנתונים MusicLesson לפי ההגדרות בקובץ database.py.
+   - המערכת מתחברת אוטומטית לבסיס הנתונים MusicLesson לפי ההגדרות בקובץ database.py.
 
 **הרצת האפליקציה:** יש להריץ את הקובץ הראשי:
    
