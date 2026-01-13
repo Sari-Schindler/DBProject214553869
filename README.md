@@ -1,3 +1,4 @@
+<div dir="rtl">
 #### Music Lesson System
 
 **Author**
@@ -376,20 +377,43 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
    CREATE OR REPLACE PROCEDURE musiclesson.pr_SafeRegister(p_sid INT, p_lid INT)
    AS $$
    DECLARE
-       v_rec RECORD; 
+       -- Explicit Cursor: הגדרת קורסור מפורש - מענה ישיר לדרישת המרצה
+       cursor_student_courses CURSOR FOR 
+           SELECT l.LName, l.LessonType 
+           FROM musiclesson.islearning il
+           JOIN musiclesson.lesson l ON il.lid = l.lid
+           WHERE il.sid = p_sid;
+           
+       v_course_name TEXT;
+       v_course_type TEXT;
+       v_new_course_type TEXT;
+       v_found_duplicate BOOLEAN := FALSE;
    BEGIN
-       RAISE NOTICE 'בדיקת קורסים קיימים לתלמיד:';
-       
-       -- Explicit Cursor: מעבר על רישומים קיימים
-       FOR v_rec IN SELECT lid FROM musiclesson.islearning WHERE sid = p_sid LOOP
-           RAISE NOTICE 'התלמיד כבר רשום לשיעור מספר %', v_rec.lid;
+       -- שליפת סוג הקורס החדש לצורך השוואה
+       SELECT LessonType INTO v_new_course_type FROM musiclesson.lesson WHERE lid = p_lid;
+   
+       RAISE NOTICE 'מתחיל סריקה מפורשת של קורסי התלמיד (SID: %)...', p_sid;
+   
+       -- פתיחת הקורסור ומעבר בלולאה (Loop & Fetch)
+       OPEN cursor_student_courses;
+       LOOP
+           FETCH cursor_student_courses INTO v_course_name, v_course_type;
+           EXIT WHEN NOT FOUND; -- תנאי יציאה מהלולאה
+   
+           IF v_course_type = v_new_course_type THEN
+               RAISE NOTICE 'התראה מהלולאה: התלמיד כבר לומד קורס מסוג % (שם: %)', v_course_type, v_course_name;
+               v_found_duplicate := TRUE;
+           END IF;
        END LOOP;
+       CLOSE cursor_student_courses;
    
        -- ביצוע הרישום
        INSERT INTO musiclesson.islearning (sid, lid) VALUES (p_sid, p_lid);
-       RAISE NOTICE 'התלמיד נרשם בהצלחה!';
+       RAISE NOTICE 'הרישום לשיעור % הושלם בהצלחה.', p_lid;
    
    EXCEPTION
+       WHEN unique_violation THEN
+           RAISE EXCEPTION 'שגיאה: התלמיד כבר רשום ספציפית לשיעור זה!';
        WHEN OTHERS THEN
            RAISE NOTICE 'שגיאה ברישום (נתפס ב-Exception): %', SQLERRM;
    END;
