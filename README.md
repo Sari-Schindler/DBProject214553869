@@ -1,4 +1,3 @@
-<div dir="rtl">
  
 #### Music Lesson System
 
@@ -313,6 +312,8 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
  
 ## Backup
 - **[backup part 3](part3/backup_3.backup)** - backup file for part 3.
+
+<div dir="rtl">
 
 ## Phase 4: Programming (PL/pgSQL)
 
