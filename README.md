@@ -557,6 +557,28 @@ python main_app.py
 - **דוחות ניהוליים:** הרצת שאילתות מורכבות משלב ב' בלחיצת כפתור.
 
 - **נתונים מרכזיים:** הצגת דוח "פעילויות לפי חודש" ו"ממוצע שכר מורים" בטבלאות מסודרות.
+  
+### צילומי מסך של ממשק המשתמש
+
+- *תפריט ראשי*
+ ![image](part5/screenshots/main.png)
+
+- *מסך ניהול תלמידים*
+ ![image](part5/screenshots/students.png)
+
+- *מסך ניהול שיעורים*
+ ![image](part5/screenshots/lessons.png)
+
+- *מסך ניהול הרשמה*
+ ![image](part5/screenshots/registration.png)
+
+- *מסך דוחות ושאילתות*
+ ![image](part5/screenshots/4.png)
+
+- *מסך המציג את פרטי המערכת*
+![image](part5/screenshots/3.png)
+
+
 
 ### מבנה האפליקציה (ארכיטקטורה)
  האפליקציה בנויה במבנה מודולרי להפרדה בין העיצוב, החיבור למסד הנתונים והמסכים השונים:
@@ -575,6 +597,79 @@ python main_app.py
      └── about.py          # System information screen
 ```
 
+## 📂 Python Files
+#### Core Application Files
+
+- **[main_app.py](part5/main_app.py)** – נקודת הכניסה הראשית לאפליקציה ומערכת התפריטים המרכזית.
+
+
+- **[database.py](part5/database.py)** – ניהול החיבור לבסיס הנתונים PostgreSQL והגדרות התצורה.
+
+- **[styles.py](part5/styles.py)** – הגדרות עיצוב גלובליות, צבעים וגופנים לממשק המשתמש.
+
+## 📂 Screen Modules
+
+- **[students.py](part5/screens/students.py)** – ממשק ניהול תלמידים (Student Management): ביצוע פעולות CRUD מלאות עבור תלמידים בבית הספר למוזיקה.
+
+- **[lessons.py](part5/screens/lessons.py)** – ממשק ניהול שיעורים (Lesson Management): צפייה במאגר השיעורים ועדכון מחירים.
+
+- **[registration.py](part5/screens/registration.py)** – ממשק רישום ולוגיקה (Registration & Logic): ביצוע רישום תלמידים לשיעורים באמצעות פרוצדורות (Procedures) ותפיסת הודעות מהשרת.
+
+- **[reports.py](part5/screens/reports.py)** – ממשק שאילתות ודוחות (Query Reports): הפקת דוחות ניהוליים המבוססים על שאילתות מורכבות של המערכת.
+
+- **[about.py](part5/screens/about.py)** – ממשק אודות המערכת (About Interface): הצגת פרטי גרסה, מפתח וטכנולוגיות פיתוח.  
+
+## 🛠️ Operating Instructions
+
+#### Starting the Application
+
+- **Launch:** הרץ את הפקודה python main_app.py מתוך הטרמינל או שורת הפקודה בתיקיית הפרויקט.
+
+- **Main Menu:** האפליקציה תיפתח בחלון מרכזי המציג את תפריט הניהול הראשי, הכולל 5 אפשרויות ניווט.
+
+- **Navigation:** לחץ על כל אחד מהכפתורים הצבעוניים כדי לגשת למודולים השונים של המערכת.
+
+#### Using Each Module
+**👥 ניהול תלמידים (Student Management):**
+
+- גישה למאגר התלמידים המלא ותצוגתו בטבלה.
+
+- הוספת תלמידים חדשים למערכת על ידי הזנת שם וכתובת.
+ ![image](part5/screenshots/adds.png)
+
+- עדכון פרטי תלמידים קיימים ומחיקת רשומות מהמסד לאחר בחירת שורה בטבלה.
+ ![image](part5/screenshots/edits.png)
+ 
+**🔐 רישום ולוגיקה (Secure Registration):**
+
+- ביצוע רישום תלמיד (SID) לשיעור (LID) תוך הפעלת הפרוצדורה המאובטחת pr_SafeRegister.
+ ![image](part5/screenshots/reg.png)
+
+
+- המערכת משתמשת ב-Explicit Cursor וב-Loop בתוך ה-SQL כדי לסרוק את היסטוריית התלמיד ולמנוע כפל קורסים.
+
+- קבלת הודעות חיווי (Notices) ושגיאות טריגרים (כמו חדר מלא) ישירות בחלונות קופצים.
+ ![image](part5/screenshots/error.png)
+
+**📊 דוחות ושאילתות (Reports & Analytics):**
+
+-הפקת דוחות ניהוליים המבוססים על השאילתות משלב ב'.
+
+-צפייה בנתוני פעילות לפי חודשים וניתוח שכר מורים ממוצע לפי סוג שיעור.
+
+ ![image](part5/screenshots/1.png)
+
+![image](part5/screenshots/2.png)
+
+## 🔄 Navigation Flow
+
+**Module Selection:** בחר את הפונקציה הרצויה מתפריט הניהול הראשי (ניהול תלמידים, שיעורים, רישום או דוחות).
+
+**Module Operation:** בצע את המשימות הנדרשות בתוך המודול שנבחר, כגון הוספת תלמיד, עדכון מחיר שיעור או הרצת שאילתה אנליטית.
+
+**Return to Menu:** השתמש בכפתור הסגירה של החלון (X) או בכפתור "סגור" כדי לחזור לממשק התפריט הראשי.
+
+**Exit Application:** השתמש בכפתור ה"יציאה" האדום בתפריט הראשי כדי לסגור את האפליקציה בבטחה ולנתק את החיבור למסד הנתונים.
 ### הסבר על שיטת העבודה
 
 #### תהליך הפיתוח
