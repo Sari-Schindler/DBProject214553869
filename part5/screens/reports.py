@@ -18,8 +18,7 @@ def open_reports_screen(root):
         for item in tree.get_children(): tree.delete(item)
         conn = connect_db()
         if conn:
-            cur = conn.cursor()
-            cur.execute(q)
+            cur = conn.cursor(); cur.execute(q)
             tree["columns"] = cols
             for c in cols: tree.heading(c, text=c)
             for row in cur.fetchall(): tree.insert("", tk.END, values=row)
@@ -28,8 +27,12 @@ def open_reports_screen(root):
     btn_frame = tk.Frame(win, bg=styles.BG_COLOR)
     btn_frame.pack(pady=20)
 
-    tk.Button(btn_frame, text="פעילויות לפי חודש", command=lambda: run_query(
-        "SELECT EXTRACT(MONTH FROM activitydate), COUNT(*) FROM musiclesson.activity GROUP BY 1", ("חודש", "כמות"))).pack(side=tk.LEFT, padx=10)
+    btn_month = tk.Button(btn_frame, text="פעילויות לפי חודש", command=lambda: run_query(
+        "SELECT EXTRACT(MONTH FROM activitydate), COUNT(*) FROM musiclesson.activity GROUP BY 1", ("חודש", "כמות")), bg="white")
+    btn_month.pack(side=tk.LEFT, padx=10)
+    styles.apply_hover(btn_month, "white")
     
-    tk.Button(btn_frame, text="ממוצע שכר מורים", command=lambda: run_query(
-        "SELECT lessontype, ROUND(AVG(salary), 2) FROM musiclesson.lesson L JOIN musiclesson.teacher T ON L.tid=T.tid GROUP BY 1", ("סוג שיעור", "שכר ממוצע"))).pack(side=tk.LEFT, padx=10)
+    btn_salary = tk.Button(btn_frame, text="ממוצע שכר מורים", command=lambda: run_query(
+        "SELECT lessontype, ROUND(AVG(salary), 2) FROM musiclesson.lesson L JOIN musiclesson.teacher T ON L.tid=T.tid GROUP BY 1", ("סוג שיעור", "שכר ממוצע")), bg="white")
+    btn_salary.pack(side=tk.LEFT, padx=10)
+    styles.apply_hover(btn_salary, "white")

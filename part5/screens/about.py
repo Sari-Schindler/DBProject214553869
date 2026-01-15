@@ -18,4 +18,6 @@ def open_about_screen(root):
     """
     tk.Label(win, text=info, font=styles.FONT_MAIN, bg=styles.BG_COLOR, justify="center").pack(pady=10)
     
-    tk.Button(win, text="סגור", command=win.destroy, bg=styles.PRIMARY_COLOR, fg="white", width=10).pack(pady=10)
+    btn_close = tk.Button(win, text="סגור", command=win.destroy, bg=styles.PRIMARY_COLOR, fg="white", width=10)
+    btn_close.pack(pady=10)
+    styles.apply_hover(btn_close, styles.PRIMARY_COLOR)

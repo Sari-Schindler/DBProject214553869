@@ -9,7 +9,7 @@ def open_students_screen(root):
     win.geometry("800x650")
     win.configure(bg=styles.BG_COLOR)
 
-    tk.Label(win, text="ניהול תלמידים (CRUD מלא)", font=styles.FONT_TITLE, bg=styles.BG_COLOR, fg=styles.PRIMARY_COLOR).pack(pady=20)
+    tk.Label(win, text="ניהול תלמידים", font=styles.FONT_TITLE, bg=styles.BG_COLOR, fg=styles.PRIMARY_COLOR).pack(pady=20)
 
     columns = ("ID", "Name", "Address")
     tree = ttk.Treeview(win, columns=columns, show="headings")
@@ -62,8 +62,18 @@ def open_students_screen(root):
 
     btn_frame = tk.Frame(win, bg=styles.BG_COLOR)
     btn_frame.pack(pady=10)
-    tk.Button(btn_frame, text="הוסף", command=add_student, bg=styles.SUCCESS_COLOR, fg="white", width=10).pack(side=tk.LEFT, padx=5)
-    tk.Button(btn_frame, text="עדכן", command=update_student, bg=styles.ACCENT_COLOR, fg="white", width=10).pack(side=tk.LEFT, padx=5)
-    tk.Button(btn_frame, text="מחק", command=delete_student, bg=styles.DANGER_COLOR, fg="white", width=10).pack(side=tk.LEFT, padx=5)
+    
+    # הוספת אפקט הריחוף לכפתורים
+    btn_add = tk.Button(btn_frame, text="הוסף", command=add_student, bg=styles.SUCCESS_COLOR, fg="white", width=10)
+    btn_add.pack(side=tk.LEFT, padx=5)
+    styles.apply_hover(btn_add, styles.SUCCESS_COLOR)
+
+    btn_upd = tk.Button(btn_frame, text="עדכן", command=update_student, bg=styles.ACCENT_COLOR, fg="white", width=10)
+    btn_upd.pack(side=tk.LEFT, padx=5)
+    styles.apply_hover(btn_upd, styles.ACCENT_COLOR)
+
+    btn_del = tk.Button(btn_frame, text="מחק", command=delete_student, bg=styles.DANGER_COLOR, fg="white", width=10)
+    btn_del.pack(side=tk.LEFT, padx=5)
+    styles.apply_hover(btn_del, styles.DANGER_COLOR)
     
     refresh_table()
