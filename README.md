@@ -521,13 +521,18 @@ python main_app.py
 ### הוראות חיבור והפעלה
 **הגדרת חיבור לבסיס הנתונים:**
 
-11. [cite_start]בדיקת זמינות השרת: לפני הרצת האפליקציה, יש לוודא ששרת בסיס הנתונים (PostgreSQL) פעיל ורץ[cite: 3].
-2. [cite_start]הגדרות חיבור למסד הנתונים: פרמטרי החיבור מוגדרים ומנוהלים בקובץ database.py[cite: 6]. להלן פרטי ברירת המחדל המוגדרים במערכת:
-   * כתובת מארח (Host): 127.0.0.1
-   * [cite_start]פורט (Port): 5433 [cite: 4]
-   * [cite_start]שם בסיס הנתונים: MusicLesson [cite: 4]
-   * שם משתמש: postgres
-   * סיסמה: Mss054333@
+1. לפני הרצת האפליקציה, וודאו ששרת בסיס הנתונים פעיל.
+
+2. פרמטרי החיבור מוגדרים בקובץ database.py:
+
+* כתובת מארח (Host): 127.0.0.1
+
+* פורט: 5433
+
+* שם בסיס הנתונים: MusicLesson
+
+* סיסמה: Mss054333@.
+
 ### תכונות האפליקציה
 
 #### 👥 ניהול תלמידים
