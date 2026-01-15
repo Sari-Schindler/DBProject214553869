@@ -537,23 +537,37 @@ python main_app.py
 
 ### צילומי מסך של ממשק המשתמש
 
-*תפריט ראשי*
- ![image](part5/screenshots/main.png)
+<ul>
+  <li><strong>תפריט ראשי:</strong> מציע 5 אפשרויות ניווט לניהול תלמידים, שיעורים, רישום מאובטח ודוחות[cite: 7].
+    <br>
+    <img src="part5/screenshots/main.png" alt="תפריט ראשי" width="600">
+  </li>
+  
+  <li><strong>מסך ניהול תלמידים:</strong> במסך זה ניתן לבצע שליפה, הוספה, עדכון ומחיקה של תלמידים[cite: 8].
+    <br>
+    <img src="part5/screenshots/students.png" alt="ניהול תלמידים" width="600">
+  </li>
 
- *מסך ניהול תלמידים*
- ![image](part5/screenshots/students.png)
+  <li><strong>מסך ניהול שיעורים:</strong> מאפשר ניהול CRUD מלא של קטלוג השיעורים ועדכון מחירים[cite: 8].
+    <br>
+    <img src="part5/screenshots/lessons.png" alt="ניהול שיעורים" width="600">
+  </li>
 
- *מסך ניהול שיעורים*
- ![image](part5/screenshots/lessons.png)
+  <li><strong>מסך ניהול הרשמה:</strong> הזנת SID ו-LID להפעלת הפרוצדורה המאובטחת והצגת הודעות חיווי מהשרת[cite: 9, 10].
+    <br>
+    <img src="part5/screenshots/registration.png" alt="ניהול הרשמה" width="600">
+  </li>
 
- *מסך ניהול הרשמה*
- ![image](part5/screenshots/registration.png)
+  <li><strong>מסך דוחות ושאילתות:</strong> מציג את השאילתות משלב ב' בפורמט טבלאי נוח.
+    <br>
+    <img src="part5/screenshots/4.png" alt="דוחות ושאילתות" width="600">
+  </li>
 
- *מסך דוחות ושאילתות*
- ![image](part5/screenshots/4.png)
-
- *מסך המציג את פרטי המערכת*
-![image](part5/screenshots/3.png)
+  <li><strong>אודות המערכת:</strong> מסך המציג את פרטי הגרסה והמפתח.
+    <br>
+    <img src="part5/screenshots/3.png" alt="אודות המערכת" width="400">
+  </li>
+</ul>
 
 
 
