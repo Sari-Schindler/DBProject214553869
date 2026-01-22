@@ -588,6 +588,8 @@ python main_app.py
      └── about.py          # System information screen
 ```
 
+<div dir="rtl">
+ 
 ## 📂 Python Files
 #### Core Application Files
 
@@ -685,4 +687,5 @@ python main_app.py
   <li><strong>מניעת טעויות:</strong> אימות קלט והצגת הודעות שגיאה ידידותיות במקרה של הפרת אילוצים עסקיים (כמו ניסיון רישום לחדר מלא או כפל קורסים).</li>
 </ul> 
 
+</div>
 </div>
