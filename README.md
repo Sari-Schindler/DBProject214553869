@@ -373,7 +373,7 @@ StudentSatisfactionReport: מאחד את פרטי התלמיד עם נתוני �
    CREATE OR REPLACE PROCEDURE musiclesson.pr_SafeRegister(p_sid INT, p_lid INT)
    AS $$
    DECLARE
-       -- Explicit Cursor: הגדרת קורסור מפורש - מענה ישיר לדרישת המרצה
+       -- Explicit Cursor: הגדרת קורסור מפורש
        cursor_student_courses CURSOR FOR 
            SELECT l.LName, l.LessonType 
            FROM musiclesson.islearning il
